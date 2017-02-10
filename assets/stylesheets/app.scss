@@ -1,0 +1,27 @@
+@import "common/normalize";
+@import "common/variables";
+@import "common/mixins";
+
+
+@include placeholder {
+    color: #848484;
+}
+
+i {
+	cursor: pointer;
+}
+
+body{
+	font-family: BlinkMacSystemFont, sans-serif;
+	font-size: 18px;
+	letter-spacing: 0px;
+	min-width: 300px;
+	& {
+		@include bp-medium {
+			font-size: 14px;
+		}
+		@include bp-small {
+			font-size: 12px;
+		}
+	}
+}
