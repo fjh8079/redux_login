@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { GET_USERS, GET_USERS_SUCCESS, API_URL } from '../constants/index.js';
+import { GET_USERS, GET_USERS_SUCCESS, SHOW_ALERT, API_URL } from '../constants/index.js';
 
 function getUserListSuccess(content) {
 	return {
@@ -22,8 +22,19 @@ export function getUsers() {
 		.then(json => {
 			if(json.data) {
 				dispatch(getUserListSuccess(json.data))
+			} else if(json.code === 'invalid_token') {
+				location.href = 'login'
+			} else {
+				dispatch(getUsersError(json))
 			}
 		})
+	}
+}
+
+function getUsersError(json) {
+	return {
+		type: SHOW_ALERT,
+		alertContent: json.code
 	}
 }
 
@@ -41,8 +52,11 @@ export function createUser(data) {
 		.then(response => response.json())
 		.then(json => {
 			if(json.code === 'success') {
-				alert('success')
 				dispatch(getUsers())
+			} else if(json.code === 'invalid_token') {
+				location.href = 'login'
+			} else {
+				dispatch(getUsersError(json))
 			}
 		})
 	}

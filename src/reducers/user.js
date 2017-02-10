@@ -7,7 +7,7 @@ const initialState = {
 const user = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_USERS_SUCCESS:
-			return Object.assign({}, state, {member: action.content})
+			return Object.assign({}, state, {member: action.content.reverse()})
 			break
 		default:
             return state

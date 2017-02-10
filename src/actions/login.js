@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { CHANGE_LOGIN_DATA, SENDING_REQUEST, LOGIN, LOGIN_SUCCESS, LOGIN_FAILED, API_URL } from '../constants/index.js';
+import { CHANGE_LOGIN_DATA, SENDING_REQUEST, LOGIN, LOGIN_SUCCESS, SHOW_ALERT, API_URL } from '../constants/index.js';
 
 export function changeLoginData(newState) {
 	return { type: CHANGE_LOGIN_DATA, newState };
@@ -12,16 +12,10 @@ function sendingRequest(sending) {
 	}
 }
 
-function loginSuccess() {
-	return {
-		type: LOGIN_SUCCESS
-	}
-}
-
 function loginFailed(json) {
 	return {
-		type: LOGIN_FAILED,
-		loginAlert: json
+		type: SHOW_ALERT,
+		alertContent: json.code
 	}
 }
 
@@ -39,7 +33,6 @@ export function login(data) {
 		.then(json => {
 			if(json.token) {
 				localStorage.setItem('access_token', json.token.token)
-				dispatch(loginSuccess())
 				location.href = '/'
 			} else {
 				dispatch(loginFailed(json))

@@ -1,5 +1,79 @@
-.form-group {
-	label {
-		display: block;
+@import "common/normalize";
+@import "common/variables";
+@import "common/mixins";
+
+.center {
+	text-align: center;
+}
+
+.btn {
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 1px 4px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 16px;
+    cursor: pointer;
+    user-select: none;
+    &:active {
+    	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 1px 4px,  2px 2px 9px rgba(0, 0, 0, 0.1) inset;
+    }
+}
+
+.loginPage {
+	background-color: #FFF;
+	position: absolute;
+    top: calc(50% - 131px);
+    left: calc(50% - 160px);
+    display: inline-block;
+    max-width: 325px;
+    width: 100%;
+    border: 1px solid $gray_border_color;
+    border-radius: 3px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    .error {
+    	font-size: .8em;
+    	color: $red_color;
+    }
+
+	.btnDiv {
+		padding: 20px;
+		.btn {
+			box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 1px 4px;
+		    display: inline-block;
+		    min-width: 150px;
+		    text-align: center;
+		    line-height: 36px;
+		    margin: 5px;
+		    cursor: pointer;
+		    user-select: none;
+		    &:active {
+		    	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 1px 4px,  2px 2px 9px rgba(0, 0, 0, 0.1) inset;
+		    }
+		}
+	}
+
+	.form-control {
+	    border-bottom: 1px solid $gray_border_color;
+	    &:last-child {
+	    	border-bottom: none;
+	    }
+		label {
+			display: block;
+		    font-size: .8em;
+		    color: #999;
+		    padding: 20px;
+		    padding-bottom: 0;
+		}
+		input {
+			border: none;
+			line-height: 36px;
+		    font-size: 1em;
+		    padding: 20px;
+		    padding-top: 0;
+	        width: 100%;
+		    box-sizing: border-box;
+			&:focus {
+				outline: none;
+			}
+		}
 	}
 }

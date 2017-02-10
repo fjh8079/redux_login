@@ -11,7 +11,12 @@ class UserList extends React.Component {
         		users
         		? (
         			users.map((item, i) => {
-        				return <li key={i}>{item.ID} {item.name}</li> 
+        				return (
+                            <li key={i}>
+                                <span className='num'>{item.ID}</span> 
+                                <span>{item.name}</span>
+                            </li>
+                        )
         			})
     			): null
         	}

@@ -1,0 +1,54 @@
+@import "common/normalize";
+@import "common/variables";
+@import "common/mixins";
+
+.userPage {
+    margin: 30px auto;
+	max-width: 500px;
+	width: 100%;
+    border: 1px solid $gray_border_color;
+    background-color: #FFF;
+    .form-control {
+	    position: relative;
+        box-sizing: border-box;
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid $gray_border_color;
+	    input {
+	    	border: none;
+		    width: calc(100% - 50px);
+		    text-indent: 5px;
+            height: 100%;
+            padding: 10px;
+	    	&:focus {
+	    		outline: none;
+	    	}
+	    }
+    }
+    .plus-icon {
+    	position: absolute;
+    	right: 10px;
+    	top: 0px;
+    	font-size: 30px;
+    	line-height: 52px;
+        cursor: pointer;
+        user-select: none;
+    }
+    ul {
+	    list-style: none;
+	    margin: 0;
+        padding: 20px 0px;
+    	height: calc(100vh - 160px);
+    	overflow-x: hidden;
+    	overflow-y: auto;
+    	li {
+    		padding: 5px 20px;
+    		.num {
+			    display: inline-block;
+			    width: 50px;
+			    text-align: right;
+			    padding-right: 20px;
+    		}
+    	}
+    }
+}

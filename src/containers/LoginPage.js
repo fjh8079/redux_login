@@ -13,7 +13,7 @@ class LoginPage extends React.Component {
 	}
 
 	_mergeWithCurrentState(change) {
-		return Object.assign(this.props.data, change);
+		return Object.assign(this.props.login.loginData, change);
 	}
 
 	emitChange(newState) {
@@ -37,27 +37,30 @@ class LoginPage extends React.Component {
 	}
 
 	_handleSubmit() {
-		this.props.dispatch(login(this.props.data))
+		this.props.dispatch(login(this.props.login.loginData))
 	}
 
 	render() {
-
+		const { commonData } = this.props
 	    return (
-	        <div>
-	        	<Login 
-	        		onSetAccount={this._handleSetAccount} 
-	        		onSetPassword={this._handleSetPassword}
-	        		onLogin={this._handleSubmit} />
-	        </div>
+	    	<Login 
+        		onSetAccount={this._handleSetAccount} 
+        		onSetPassword={this._handleSetPassword}
+        		onLogin={this._handleSubmit}
+        		alertContent={commonData.alertContent} />
 	    )
 
     }
 
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+
+	const { login, commonData } = state
+
 	return {
-		data: state.login.loginData
+		commonData,
+		login
 	}
 }
 

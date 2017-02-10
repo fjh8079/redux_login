@@ -13,9 +13,9 @@ i {
 
 body{
 	font-family: BlinkMacSystemFont, sans-serif;
-	font-size: 18px;
 	letter-spacing: 0px;
-	min-width: 300px;
+	letter-spacing: 1px;
+	background-color: #f7f8f8;
 	& {
 		@include bp-medium {
 			font-size: 14px;

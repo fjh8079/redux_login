@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { getUsers, createUser } from '../actions/user';
 import UserList from '../components/UserList'
 
+require('../../assets/stylesheets/user.scss');
+
 class UserPage extends React.Component {
 
 	constructor(props) {
@@ -20,18 +22,19 @@ class UserPage extends React.Component {
 			name: inputValue
 		}
 
-		this.props.dispatch(createUser(data))
+		if(inputValue !== '') {
+			this.props.dispatch(createUser(data))
+		}
 	}
 
 	render() {
 		const { users } = this.props
 
 	    return (
-	        <div>
-	        	<h1>Users</h1>
-	        	<div>
-	        		<input type='text' ref='name'/>
-	        		<div onClick={this._handleCreateUser.bind(this, 'name')}>新增</div>
+	        <div className='userPage'>
+	        	<div className='form-control'>
+	        		<input type='text' className='form-control' ref='name'/>
+	        		<div className='plus-icon' onClick={this._handleCreateUser.bind(this, 'name')}>＋</div>
 	        	</div>
 	        	<UserList users={users}/>
 	        </div>

@@ -2,12 +2,11 @@ export const API_URL = 'http://54.64.163.121:3443'
 
 // common
 export const SENDING_REQUEST = 'SENDING_REQUEST'
+export const SHOW_ALERT = 'SHOW_ALERT'
 
 // Login
 export const CHANGE_LOGIN_DATA = 'CHANGE_LOGIN_DATA'
 export const LOGIN = 'LOGIN'
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const LOGIN_FAILED = 'LOGIN_FAILED'
 
 // users
 export const GET_USERS = 'GET_USERS'
